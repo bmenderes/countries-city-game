@@ -33,8 +33,13 @@
 </style>
 <script>
 export default {
-  beforeCreate() {
-    this.$store.dispatch("fetchCites");
+ 
+  
+  beforeMount() {
+    if (this.$store.state.cities == null) {
+      this.$store.dispatch("fetchCites");
+    }
+
   },
 };
 </script>
